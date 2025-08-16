@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>2016 Hype Coin | Pump.fun Meme</title>
+  <meta name="description" content="A memey-but-clean one-page site for a Pump.fun launch. 2016 energy, 2025 bags. Not financial advice." />
+  <meta property="og:title" content="2016 Hype Coin (GOGZ)" />
+  <meta property="og:description" content="2016 energy. 2025 bags. Mint, meme, repeat." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="data:image/svg+xml;utf8,<!-- social card fallback is the inline logo -->" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Bangers&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg1:#0f0c29; /* vaporwave-ish gradient */
+      --bg2:#302b63;
+      --bg3:#24243e;
+      --acid:#00ffd1;
+      --hot:#ff5ceb;
+      --gold1:#f7d774;
+      --gold2:#caa334;
+      --ink:#0a0a0a;
+      --text:#f6f7fb;
+      --muted:#cfd2ff;
+      --card:rgba(255,255,255,.06);
+      --ring:rgba(255,255,255,.15);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--text);
+      background: radial-gradient(1200px 700px at 20% 0%, rgba(255,255,255,.08), transparent 60%),
+                  linear-gradient(135deg, var(--bg1), var(--bg2) 50%, var(--bg3));
+      background-attachment: fixed;
+      overflow-x:hidden;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1100px; margin-inline:auto; padding:24px}
+    header{
+      position:sticky; top:0; z-index:10; backdrop-filter:saturate(1.2) blur(6px);
+      background:linear-gradient(to bottom, rgba(0,0,0,.5), rgba(0,0,0,0));
+      border-bottom:1px solid var(--ring);
+    }
+    nav{display:flex; align-items:center; gap:18px; justify-content:space-between; padding:12px 24px}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.3px}
+    .badge{font-family:Bangers, system-ui; letter-spacing:1px; font-size:22px}
+    .navlinks a{opacity:.9; font-weight:600}
+    .navlinks{display:flex; gap:18px; align-items:center}
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 18px; border-radius:14px; font-weight:700; border:1px solid var(--ring); background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.04)); box-shadow:0 10px 30px rgba(0,0,0,.25), inset 0 0 0 1px rgba(255,255,255,.05); transition:.2s transform, .2s filter}
+    .btn:hover{transform:translateY(-2px); filter:saturate(1.2)}
+    .btn.hot{background:linear-gradient(90deg, var(--hot), var(--acid)); color:#111; border:none}
+    .btn.ghost{background:transparent}
+
+    .hero{padding:70px 24px 36px}
+    .hero .wrap{display:grid; grid-template-columns: 1.15fr .85fr; gap:28px; align-items:center}
+    @media (max-width: 880px){.hero .wrap{grid-template-columns:1fr; text-align:center}}
+
+    .title{font-size: clamp(40px, 6vw, 72px); line-height:1.04; margin: 0 0 10px; font-weight:900}
+    .title .stroke{font-family:Bangers, system-ui; font-weight:400; letter-spacing:1px; text-shadow: 0 4px 16px rgba(0,0,0,.35)}
+    .subtitle{opacity:.88; font-size: clamp(16px, 2.2vw, 20px)}
+
+    .ctaRow{display:flex; gap:12px; flex-wrap:wrap; margin-top:20px}
+
+    .statbar{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:24px}
+    .stat{background:var(--card); padding:14px 16px; border-radius:14px; border:1px solid var(--ring)}
+    .stat b{font-size:18px}
+    .stat small{display:block; opacity:.75}
+
+    /* Coin logo */
+    .logoWrap{display:grid; place-items:center}
+    .coin{
+      width:min(420px, 85%);
+      aspect-ratio:1;
+      filter: drop-shadow(0 30px 50px rgba(0,0,0,.45));
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float{ 0%,100%{ transform: translateY(0) } 50%{ transform: translateY(-14px) } }
+    .spin{ animation: spin 18s linear infinite }
+    @keyframes spin{ to{ transform: rotate(1turn) } }
+
+    /* Sections */
+    section{padding:70px 24px}
+    h2{font-size:clamp(26px, 4vw, 40px); margin:0 0 16px}
+    .card{background:var(--card); border:1px solid var(--ring); border-radius:18px; padding:22px}
+    .grid{display:grid; gap:16px}
+    .grid.cols-2{grid-template-columns:1fr 1fr}
+    @media (max-width:900px){.grid.cols-2{grid-template-columns:1fr}}
+
+    .list{display:grid; gap:12px}
+    .list li{background:rgba(255,255,255,.04); border:1px dashed var(--ring); padding:14px 16px; border-radius:14px}
+
+    /* Ticker */
+    .ticker{width:100%; overflow:hidden; border:1px solid var(--ring); border-left:none; border-right:none; background:rgba(0,0,0,.35)}
+    .marquee{display:flex; gap:40px; white-space:nowrap; animation: marquee 18s linear infinite; padding:8px 0; font-weight:800}
+    @keyframes marquee{ from{ transform: translateX(0)} to{ transform: translateX(-50%) }}
+
+    /* Roadmap */
+    .road{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+    .road .step{padding:16px; border:1px solid var(--ring); border-radius:16px; background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02))}
+    .step h3{margin:0 0 8px}
+
+    /* Footer */
+    footer{padding:40px 24px; text-align:center; opacity:.8}
+
+    /* Meme Mode toggle */
+    .switch{display:inline-flex; align-items:center; gap:10px}
+    .toggle{appearance:none; width:55px; height:30px; border-radius:30px; background:#2a2a2a; position:relative; outline:none; cursor:pointer; border:1px solid var(--ring)}
+    .toggle:before{content:""; position:absolute; width:24px; height:24px; border-radius:50%; background:white; top:2.5px; left:2.5px; transition:.2s}
+    .toggle:checked{background:linear-gradient(90deg, var(--hot), var(--acid))}
+    .toggle:checked:before{transform: translateX(25px)}
+
+    /* OG meme mode styles */
+    body.og{filter:saturate(1.2)}
+    body.og .title{font-family:Bangers, system-ui}
+    body.og .impact{font-family:Bangers, system-ui; letter-spacing:1px}
+    body.og .coin tspan.meme{opacity:1}
+
+    .toast{position:fixed; left:50%; transform:translateX(-50%); bottom:24px; background:#111; border:1px solid var(--ring); padding:10px 14px; border-radius:10px; opacity:0; pointer-events:none; transition:.25s; z-index:9}
+    .toast.show{opacity:1; transform:translateX(-50%) translateY(-6px)}
+
+    .disclaimer{font-size:13px; opacity:.75; margin-top:10px}
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <div class="brand">
+        <svg class="coin" style="width:42px;height:42px" viewBox="0 0 512 512" aria-hidden="true">
+          <defs>
+            <radialGradient id="g" cx="35%" cy="30%" r="85%">
+              <stop offset="0%" stop-color="var(--gold1)"/>
+              <stop offset="70%" stop-color="var(--gold2)"/>
+              <stop offset="100%" stop-color="#8d6a1e"/>
+            </radialGradient>
+          </defs>
+          <circle cx="256" cy="256" r="248" fill="url(#g)" stroke="#906c1f" stroke-width="12"/>
+          <!-- clout goggles -->
+          <g fill="#000" opacity=".85" transform="translate(0,10)">
+            <ellipse cx="190" cy="240" rx="85" ry="70" fill="#fff" stroke="#000" stroke-width="16"/>
+            <ellipse cx="322" cy="240" rx="85" ry="70" fill="#fff" stroke="#000" stroke-width="16"/>
+            <rect x="190" y="230" width="132" height="22" fill="#000"/>
+            <ellipse cx="190" cy="240" rx="62" ry="50" fill="#111"/>
+            <ellipse cx="322" cy="240" rx="62" ry="50" fill="#111"/>
+          </g>
+        </svg>
+        <span class="badge">2016 Hype Coin</span>
+      </div>
+      <div class="navlinks">
+        <a href="#how">How to Buy</a>
+        <a href="#tokenomics">Tokenomics</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#faq">FAQ</a>
+        <label class="switch"><input id="memeToggle" type="checkbox" class="toggle"/><span class="impact">Meme mode</span></label>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container wrap">
+        <div>
+          <h1 class="title"><span class="stroke">2016 energy</span> meets <span style="background:linear-gradient(90deg,var(--hot),var(--acid)); -webkit-background-clip:text; color:transparent">2025 bags</span> 😎💯🔥</h1>
+          <p class="subtitle">A straight-up meme coin launching on <b>Pump.fun</b>. No promises. No utility. Just vibes, clout goggles, and community.
+          </p>
+          <div class="ctaRow">
+            <a id="mintBtn" class="btn hot" href="#" target="_blank" rel="noopener">Mint on Pump.fun</a>
+            <button class="btn ghost" id="copyBtn">Copy Contract</button>
+            <a class="btn" id="chartBtn" href="#chart" >View Chart</a>
+          </div>
+          <div class="statbar">
+            <div class="stat"><small>Symbol</small><b id="sym">GOGZ</b></div>
+            <div class="stat"><small>Contract</small><b id="contractText" data-contract>SOLANA_ADDRESS_HERE</b></div>
+            <div class="stat"><small>Chain</small><b>Solana</b></div>
+          </div>
+          <p class="disclaimer">⚠️ Not financial advice. Meme responsibly.</p>
+        </div>
+        <div class="logoWrap">
+          <!-- Big animated coin logo -->
+          <svg class="coin spin" viewBox="0 0 512 512" role="img" aria-label="Clout goggles coin logo">
+            <defs>
+              <radialGradient id="gold" cx="35%" cy="30%" r="85%">
+                <stop offset="0%" stop-color="var(--gold1)"/>
+                <stop offset="70%" stop-color="var(--gold2)"/>
+                <stop offset="100%" stop-color="#8d6a1e"/>
+              </radialGradient>
+              <linearGradient id="rim" x1="0" x2="1">
+                <stop offset="0%" stop-color="#f1c861"/>
+                <stop offset="100%" stop-color="#946e1f"/>
+              </linearGradient>
+            </defs>
+            <circle cx="256" cy="256" r="240" fill="url(#gold)" stroke="url(#rim)" stroke-width="18"/>
+            <circle cx="256" cy="256" r="210" fill="none" stroke="rgba(0,0,0,.2)" stroke-width="6"/>
+            <!-- Simple face -->
+            <g fill="none" stroke="#000" stroke-width="8" opacity=".6">
+              <path d="M140 340c45 30 187 30 232 0"/>
+            </g>
+            <!-- clout goggles -->
+            <g transform="translate(0,10)">
+              <ellipse cx="190" cy="240" rx="90" ry="70" fill="#fff" stroke="#000" stroke-width="18"/>
+              <ellipse cx="322" cy="240" rx="90" ry="70" fill="#fff" stroke="#000" stroke-width="18"/>
+              <rect x="190" y="230" width="132" height="24" fill="#000"/>
+              <ellipse cx="190" cy="240" rx="66" ry="50" fill="#111"/>
+              <ellipse cx="322" cy="240" rx="66" ry="50" fill="#111"/>
+            </g>
+            <text x="256" y="96" text-anchor="middle" font-family="Bangers, system-ui" font-size="44" fill="rgba(0,0,0,.35)"><tspan class="meme" opacity="0">🔥💯😎</tspan></text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker">
+      <div class="marquee">
+        <span>NO ROADMAP • JUST MEMES • COMMUNITY FIRST •</span>
+        <span>GOGZ ON SOL • PUMP.FUN LAUNCH •</span>
+        <span>2016 AESTHETIC • DEAL WITH IT 😎</span>
+        <span aria-hidden="true">NO ROADMAP • JUST MEMES • COMMUNITY FIRST •</span>
+      </div>
+    </div>
+
+    <section id="how">
+      <div class="container grid cols-2">
+        <div class="card">
+          <h2>How to Buy (Super Simple)</h2>
+          <ol class="list" style="counter-reset: step">
+            <li><b>Get a wallet:</b> Install <a href="https://phantom.app/" target="_blank" rel="noopener">Phantom</a> or another Solana wallet.</li>
+            <li><b>Fund with SOL:</b> Buy SOL on an exchange, then send it to your wallet address.</li>
+            <li><b>Go to Pump.fun:</b> Hit the <em>Mint on Pump.fun</em> button and connect your wallet.</li>
+            <li><b>Mint/Buy:</b> Choose your amount, confirm, and welcome to the <span class="impact">goggles gang</span>.</li>
+          </ol>
+          <p class="disclaimer">Heads up: Crypto is risky. Never spend money you can’t afford to lose.</p>
+        </div>
+        <div class="card">
+          <h2>Why this coin?</h2>
+          <ul class="list">
+            <li>Pure meme nostalgia — <b>2016 Hype Coins</b> energy.</li>
+            <li>Clean art + degenerate vibes = <b>shareable content</b>.</li>
+            <li>Community-led: memes > meetings.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="tokenomics">
+      <div class="container">
+        <h2>Tokenomics</h2>
+        <div class="grid cols-2">
+          <div class="card">
+            <ul class="list">
+              <li>Supply: <b id="supply">1,000,000,000</b></li>
+              <li>Taxes: <b>0%</b></li>
+              <li>LP: <b>Auto per Pump.fun mechanics</b></li>
+              <li>Contract: <span id="contractText2" data-contract>SOLANA_ADDRESS_HERE</span></li>
+            </ul>
+            <div class="ctaRow"><a class="btn hot" id="mintBtn2" target="_blank" rel="noopener">Mint / Buy</a></div>
+          </div>
+          <div class="card">
+            <div style="aspect-ratio:16/9; border-radius:12px; overflow:hidden; border:1px solid var(--ring); background:rgba(0,0,0,.25)" id="chart">
+              <iframe id="chartFrame" title="Dex chart" style="width:100%; height:100%; border:0; display:none"></iframe>
+              <div id="chartPlaceholder" style="display:grid; place-items:center; height:100%; color:var(--muted); padding:10px; text-align:center">Add your contract to show live chart here.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap">
+      <div class="container">
+        <h2>Roadmap (ironically serious)</h2>
+        <div class="road">
+          <div class="step"><h3>Phase 1 — Launch</h3><p>Deploy on Pump.fun. Tweet low-effort memes. Spam 🔥💯😎.</p></div>
+          <div class="step"><h3>Phase 2 — Community</h3><p>Meme and Ride</p></div>
+          <div class="step"><h3>Phase 3 — Domination</h3><p>Get That BAG</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container grid cols-2">
+        <div class="card">
+          <h2>FAQ</h2>
+          <p><b>Is there utility?</b><br/>Memes are the utility. Community is the roadmap.</p>
+          <p><b>Dev doxxed?</b><br/>We prefer the shades on. 😎</p>
+          <p><b>Contract renounced?</b><br/>Follows Pump.fun flow. Check the contract page.</p>
+        </div>
+        <div class="card">
+          <h2>Links</h2>
+          <ul class="list">
+            <li>Mint: <a id="mintLink" target="_blank" rel="noopener">Pump.fun</a></li>
+            <li>Twitter/X: <a href="https://x.com/2016HypeCoinSol" id="_blank" target="_blank" rel="noopener">@2016HypeCoinSol</a></li>
+            <li>Telegram: <a href="#" id="tgLink" target="_blank" rel="noopener">Join chat</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> GOGZ — made with love, memes, and questionable life choices.</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast">Copied!</div>
+
+  <script>
+    // === CONFIG: set your real contract + handles here ===
+    const CONTRACT = "SOLANA_ADDRESS_HERE"; // <-- replace with your Solana address
+    const SYMBOL = "GOGZ";
+    const X_HANDLE = "https://x.com/2016HypeCoinSol";     // e.g. 2016 Hype Coin
+    const TG_LINK = "https://t.me/yourchat";
+
+    // Wire up basics
+    const byId = (id) => document.getElementById(id);
+    const setContractTexts = () => document.querySelectorAll('[data-contract]').forEach(el => el.textContent = CONTRACT);
+    const updateLinks = () => {
+      const mintURL = CONTRACT && CONTRACT !== "SOLANA_ADDRESS_HERE" ? `https://pump.fun/coin/${CONTRACT}` : "#";
+      const chartURL = CONTRACT && CONTRACT !== "SOLANA_ADDRESS_HERE" ? `https://dexscreener.com/solana/${CONTRACT}?embed=1` : "";
+      const mintBtn = byId('mintBtn');
+      const mintBtn2 = byId('mintBtn2');
+      if(mintBtn) mintBtn.href = mintURL; if(mintBtn2) mintBtn2.href = mintURL;
+      const mintLink = byId('mintLink'); if(mintLink) mintLink.href = mintURL;
+
+      const chartFrame = byId('chartFrame');
+      const chartPh = byId('chartPlaceholder');
+      if(chartURL){ chartFrame.src = chartURL; chartFrame.style.display='block'; chartPh.style.display='none'; }
+
+      const x = document.getElementById('xLink'); if(x) x.href = `https://x.com/${X_HANDLE}`;
+      const tg = document.getElementById('tgLink'); if(tg) tg.href = TG_LINK;
+      const sym = document.getElementById('sym'); if(sym) sym.textContent = SYMBOL;
+    };
+
+    // Copy contract
+    const toast = byId('toast');
+    function showToast(msg){ toast.textContent = msg; toast.classList.add('show'); setTimeout(()=>toast.classList.remove('show'), 1400); }
+    byId('copyBtn').addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(CONTRACT);
+        showToast('Contract copied');
+        confetti();
+      } catch(e){ showToast('Unable to copy'); }
+    });
+
+    // Meme mode
+    const toggle = byId('memeToggle');
+    toggle.addEventListener('change', () => document.body.classList.toggle('og', toggle.checked));
+
+    // Lightweight confetti (emoji)
+    function confetti(){
+      const emojis = ['😎','🔥','💯','✨'];
+      for(let i=0;i<18;i++){
+        const s = document.createElement('span');
+        s.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+        Object.assign(s.style,{
+          position:'fixed', left:Math.random()*100+'vw', top:'-10px', fontSize:(16+Math.random()*22)+'px',
+          pointerEvents:'none', zIndex:9, filter:'drop-shadow(0 2px 4px rgba(0,0,0,.3))'
+        });
+        document.body.appendChild(s);
+        const duration = 1600 + Math.random()*1200;
+        s.animate([
+          { transform:'translateY(0) rotate(0deg)', opacity:1 },
+          { transform:`translateY(${window.innerHeight+40}px) rotate(${(Math.random()*360)|0}deg)`, opacity:.1 }
+        ], { duration, easing:'cubic-bezier(.2,.7,.2,1)' }).finished.then(()=> s.remove());
+      }
+    }
+
+    // Init
+    setContractTexts();
+    updateLinks();
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
