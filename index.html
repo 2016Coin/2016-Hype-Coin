@@ -4,147 +4,135 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>2016 Coin — Pure Meme Energy</title>
-  <meta name="description" content="2016 Coin (no utility, just memes). A simple, clean, professional one‑pager for a meme coin." />
+  <meta name="description" content="2016 Coin (no utility, just memes). A simple, clean, professional one-pager for a meme coin." />
   <meta property="og:title" content="2016 Coin — Pure Meme Energy" />
-  <meta property="og:description" content="No utility. Pure memes. Clean one‑pager for the culture." />
+  <meta property="og:description" content="No utility. Pure memes. Clean one-pager for the culture." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="coin_optimized.png" />
   <link rel="icon" href="coin_optimized.png">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Bangers&display=swap" rel="stylesheet" />
+  <!-- Friendly, human typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,800&display=swap" rel="stylesheet" />
   <style>
-    /* === Warm gold + cream palette matching your coin === */
+    /* ===== 2016 Coin — Human, warm theme (gold/cream) ===== */
     :root{
-      /* Background + text */
-      --bg1:#F2E8D8;  /* cream */
-      --bg2:#EEE3CC;  /* parchment */
-      --bg3:#E8DCC4;  /* light beige */
-      --text:#2A2418; /* deep brown */
-      --muted:#6E614E;/* warm gray-brown */
+      /* Paper background */
+      --bg1:#F3E8D8; /* cream */
+      --bg2:#EEE2CB; /* parchment */
+      --bg3:#E6D9C0; /* light beige */
+
+      /* Text & accents from coin */
+      --text:#231A0F;      /* deep brown/charcoal */
+      --muted:#6E604C;     /* warm gray-brown */
+      --gold:#C9A227;      /* primary gold */
+      --bronze:#8C6E1E;    /* bronze */
+      --ink:#1E160C;       /* outline color reference */
 
       /* Surfaces */
-      --card:#FFFFFF;           /* card surface */
-      --cardt:#ffffffdd;        /* translucent card */
-      --border:rgba(31,22,6,.10);/* subtle border */
-      --soft:rgba(31,22,6,.06);  /* soft lines */
-
-      /* Accents (gold/bronze) */
-      --acc:#C9A227;  /* gold */
-      --acc2:#8C6E1E; /* bronze */
-
-      --radius:18px; 
-      --shadow:0 10px 28px rgba(31,22,6,.12);
+      --card:#FFFFFF;
+      --card-soft:#FFFAF0;
+      --border:rgba(30,22,12,.12);
+      --shadow:0 10px 28px rgba(30,22,12,.12);
+      --radius:16px;
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0;
-      color:var(--text);
+      margin:0; color:var(--text);
       font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
       background:
-        radial-gradient(1100px 520px at 15% -10%, rgba(201,162,39,.18) 0%, transparent 60%),
-        linear-gradient(135deg,var(--bg1),var(--bg2) 45%,var(--bg3));
+        radial-gradient(900px 450px at 15% -10%, rgba(201,162,39,.14) 0%, transparent 60%),
+        linear-gradient(135deg,var(--bg1),var(--bg2) 50%,var(--bg3));
     }
     a{color:inherit;text-decoration:none}
-    .wrap{max-width:1100px;margin:0 auto;padding:24px}
+    .wrap{max-width:1100px;margin:0 auto;padding:20px}
 
-    /* Top line */
-    .headline,.top-banner{
+    /* Intro line */
+    .headline{
       text-align:center;
-      font:800 24px/1.25 "Bangers",system-ui;
-      color:#1F1606;
-      margin:18px 0 14px;
-      letter-spacing:.5px;
+      font:800 26px/1.2 "Fraunces", serif;
+      color:var(--ink);
+      margin:18px 0 10px;
+      letter-spacing:.3px;
     }
 
     /* Header */
     header{
-      display:flex;justify-content:space-between;align-items:center;
-      padding:14px 18px;
-      background:color-mix(in oklab, var(--card) 92%, transparent);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      backdrop-filter:blur(6px);
-      position:sticky;top:18px;z-index:50;
-      box-shadow:var(--shadow)
+      display:flex;justify-content:space-between;align-items:center;gap:14px;
+      padding:14px 18px;background:var(--card);
+      border:1px solid var(--border); border-radius:var(--radius);
+      box-shadow:var(--shadow); position:sticky; top:18px; z-index:10;
     }
     .brand{display:flex;gap:12px;align-items:center}
-    .brand img{width:44px;height:44px;border-radius:12px;box-shadow:0 6px 18px rgba(31,22,6,.15)}
-    .brand h1{font:800 18px/1.1 Inter;margin:0}
-    .brand .tag{display:block;font:600 11px/1 Inter;color:var(--muted)}
+    .brand img{width:44px;height:44px;border-radius:50%; box-shadow:0 6px 16px rgba(30,22,12,.14)}
+    .brand h1{font:800 18px/1 "Fraunces",serif; margin:0}
+    .brand .tag{display:block;font:600 12px/1 Inter;color:var(--muted)}
     nav{display:flex;gap:10px;flex-wrap:wrap}
-
     .btn{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:10px 14px;border-radius:12px;
-      border:1px solid var(--border);
-      background: #FFF7E2; /* light warm */
-      transition:all .15s ease;white-space:nowrap
+      display:inline-flex;align-items:center;gap:8px; padding:10px 14px;
+      border-radius:12px; background:var(--card-soft);
+      border:1px solid var(--border); transition:transform .12s ease, background .12s ease, border-color .12s ease;
     }
-    .btn:hover{transform:translateY(-1px);border-color:#c9a22755;background:#FFF2CF}
+    .btn:hover{transform:translateY(-1px); background:#FFF2D5; border-color:#d7b85c66}
+    .btn:focus-visible{outline:2px solid var(--gold); outline-offset:2px}
     .btn.primary{
-      background:linear-gradient(180deg,#E0C45A,#B88A1B);
-      color:#1F1606;border:none
+      background:linear-gradient(180deg,#E0C45A,#B5891A);
+      color:#231A0F; border:none; font-weight:700;
     }
-    .btn.primary:hover{filter:brightness(1.04)}
+    .btn.primary:hover{filter:brightness(1.03)}
 
     /* Hero */
-    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;margin:34px 0}
-    .card{
-      background:linear-gradient(180deg,var(--cardt),#ffffffc8);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      padding:26px;box-shadow:var(--shadow)
-    }
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:center;margin:30px 0}
+    .card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:24px; box-shadow:var(--shadow)}
     .badge{
-      display:inline-block;padding:8px 12px;border-radius:999px;
-      background:#FFF2CF;border:1px solid var(--border);
-      color:#5F533F;font-weight:700;font-size:12px;letter-spacing:.2px;margin-bottom:14px
+      display:inline-block; padding:8px 12px; border-radius:999px;
+      background:#FFF3D4; border:1px solid var(--border);
+      color:#5B4C37; font-weight:700; font-size:12px; letter-spacing:.2px; margin-bottom:12px;
     }
-    h2.title{font:800 clamp(28px,4.5vw,44px)/1.05 "Bangers",system-ui;letter-spacing:.8px;margin:6px 0 10px}
-    p.lead{font-size:16px;color:#4D4233;opacity:.95;margin:0 0 18px}
-    .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+    h2.title{font:800 clamp(26px,4.2vw,40px)/1.08 "Fraunces",serif; letter-spacing:.2px; margin:4px 0 8px}
+    p.lead{font-size:16px;color:#4D4031;margin:0 0 16px}
+    .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
 
-    .statrow{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
-    .stat{padding:14px;border-radius:14px;border:1px solid var(--border);background:#FFF7DD}
+    .statrow{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+    .stat{padding:12px;border-radius:12px;border:1px solid var(--border);background:#FFF7E5}
     .stat b{display:block;font-size:18px}
     .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;color:var(--muted)}
 
-    /* Poster image (your coin) */
+    /* Poster (coin) */
     .meme-poster{
-      max-width:420px;height:auto;margin:0 auto;display:block;
-      border-radius:18px;box-shadow:0 10px 30px rgba(31,22,6,.18)
+      max-width:420px; height:auto; display:block; margin:0 auto;
+      border-radius:12px; box-shadow:0 10px 28px rgba(30,22,12,.14);
     }
 
     /* Sections */
-    section{margin:56px 0}
-    h3{font:800 20px/1.2 Inter;margin:0 0 12px}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .tile{padding:18px;border-radius:16px;border:1px solid var(--border);background:#FFFDF7}
-    .tile h4{margin:0 0 8px;font-size:16px}
-    .tile p{margin:0;color:#544938;font-size:14px}
+    section{margin:54px 0}
+    h3{font:800 20px/1.2 "Fraunces",serif; margin:0 0 10px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .tile{padding:16px;border-radius:14px;border:1px solid var(--border);background:#FFFCF6}
+    .tile h4{margin:0 0 6px;font:700 16px/1.2 Inter}
+    .tile p{margin:0;color:#534733;font-size:14px}
 
     /* Tokenomics */
-    .tokenomics{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+    .tokenomics{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
     .list{display:grid;gap:10px}
     .row{
       display:flex;justify-content:space-between;gap:10px;
-      padding:12px 14px;border:1px dashed #b8952a55;border-radius:12px;background:#FFF7E6
+      padding:12px 14px; border:1px dashed #b8942a55; border-radius:12px; background:#FFF6E1
     }
 
     /* FAQ */
-    details{border:1px solid var(--border);border-radius:12px;padding:14px 16px;background:#FFFDF7}
+    details{border:1px solid var(--border);border-radius:12px;padding:14px 16px;background:#FFFCF6}
     details+details{margin-top:10px}
     summary{cursor:pointer;font-weight:800}
-    details p{color:#5A4E3C}
+    details p{color:#5A4B37}
 
     /* Footer */
-    footer{margin:72px 0 24px;color:var(--muted);font-size:13px}
-    .disclaimer{border:1px solid var(--border);background:#FFF9EC;border-radius:14px;padding:14px}
+    footer{margin:70px 0 20px;color:var(--muted);font-size:13px}
+    .disclaimer{border:1px solid var(--border);background:#FFF8EA;border-radius:14px;padding:14px}
 
     /* Responsive */
-    @media (max-width:900px){
-      .hero,.tokenomics{grid-template-columns:1fr}
+    @media (max-width: 900px){
+      .hero, .tokenomics{grid-template-columns:1fr}
       header{position:static}
     }
   </style>
@@ -153,8 +141,10 @@
   <div class="wrap">
     <div class="headline">If you miss the happiness you had in 2016</div>
 
+    <!-- Header (layout unchanged) -->
     <header>
       <div class="brand">
+        <!-- Use your coin image as the logo -->
         <img src="coin_optimized.png" alt="2016 Coin logo" />
         <div>
           <h1>2016 Coin</h1>
@@ -189,6 +179,7 @@
       </div>
       <div class="card" aria-labelledby="hero-art-title">
         <h3 id="hero-art-title" style="margin:0 0 10px">Meme Poster</h3>
+        <!-- Keep your poster as the coin image -->
         <img src="coin_optimized.png" alt="2016 Coin Poster" class="meme-poster" />
       </div>
     </section>
@@ -226,7 +217,7 @@
         </div>
         <div class="card">
           <h4 style="margin-top:0">How to Buy</h4>
-          <ol style="margin:0; padding-left: 18px; color:#544938">
+          <ol style="margin:0; padding-left:18px; color:#534733">
             <li>Set up a wallet that supports your chain of choice.</li>
             <li>Fund it with the chain’s native token.</li>
             <li>Use a DEX and paste the contract address once announced.</li>
@@ -264,18 +255,19 @@
   </div>
 
   <script>
+    // Launch-day switches
     const CONFIG = {
       chain: "Solana",
-      contract: "TBA",
+      contract: "TBA", // replace with real mint on launch
       links: {
-        buy: "https://pump.fun/coin/xxxxxxxxxxxx",   // put your real Pump.fun coin URL
+        buy: "https://pump.fun/coin/xxxxxxxxxxxx",  // put your real coin URL
         chart: "https://dexscreener.com/solana/xxxxxxxxxxxx",
         x: "https://x.com/",
         tg: "https://t.me/"
       }
     };
 
-    // Populate fields
+    // Populate dynamic fields
     document.querySelectorAll('#ca, #ca2').forEach(n=> n.textContent = CONFIG.contract);
     document.querySelectorAll('#chain').forEach(n=> n.textContent = CONFIG.chain);
     document.querySelectorAll('#chartBtn').forEach(n=> n.href = CONFIG.links.chart);
