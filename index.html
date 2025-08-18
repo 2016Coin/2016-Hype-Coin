@@ -13,130 +13,84 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
     :root{
-      /* Dark cocoa background + warm gold UI */
-      --bg-dark:#1a0f08;
-      --bg-mid:#2a180e;
-      --bg-soft:#3a2615;
-      --gold:#f1c76e;
-      --gold-strong:#ffd86e;
-      --gold-soft:#e0c48f;
-      --text:#f8edd6;
-      --muted:#c3ab84;
-      --line:#5c4325;
-      --card:#24140c;
-      --radius:12px;
-      --shadow:0 18px 60px rgba(0,0,0,.35);
+      --bg-dark:#1a0f08; --bg-soft:#3a2615;
+      --gold:#f1c76e; --gold-strong:#ffd86e; --gold-soft:#e0c48f;
+      --text:#f8edd6; --muted:#c3ab84; --line:#5c4325;
+      --radius:12px; --shadow:0 18px 60px rgba(0,0,0,.35);
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0;
+      margin:0; color:var(--text);
       font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-      color:var(--text);
       background:
         radial-gradient(900px 500px at 50% 30%, var(--bg-soft), transparent 65%),
-        radial-gradient(1400px 700px at 20% -10%, rgba(76,49,24,.55), transparent 70%),
         linear-gradient(#2b180f, #160c07 70%, #0f0805);
       background-color:var(--bg-dark);
     }
     a{color:inherit;text-decoration:none}
-
     .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
 
-    /* Header (simple, quiet) */
-    header{
-      position:sticky; top:0; z-index:20;
-      backdrop-filter:saturate(140%) blur(6px);
-      background:linear-gradient(to bottom, rgba(26,15,8,.85), rgba(26,15,8,.55));
-      border-bottom:1px solid var(--line);
-    }
-    .nav{
-      max-width:1100px; margin:0 auto;
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 24px;
-    }
-    .brand{display:flex; align-items:center; gap:10px; color:var(--gold)}
-    .brand img{width:28px; height:28px; border-radius:50%; box-shadow:0 0 12px rgba(241,199,110,.25)}
-    .brand h1{font:800 16px/1 Inter; margin:0}
-    .links{display:flex; gap:18px}
-    .links a{font-weight:600; color:var(--gold-soft)}
+    /* Header */
+    header{position:sticky; top:0; z-index:20; backdrop-filter:saturate(140%) blur(6px);
+      background:linear-gradient(to bottom, rgba(26,15,8,.85), rgba(26,15,8,.55)); border-bottom:1px solid var(--line);}
+    .nav{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
+    .brand{display:flex;align-items:center;gap:10px;color:var(--gold)}
+    .brand img{width:28px;height:28px;border-radius:50%;box-shadow:0 0 12px rgba(241,199,110,.25)}
+    .brand h1{font:800 16px/1 Inter;margin:0}
+    .links{display:flex;gap:18px}
+    .links a{font-weight:600;color:var(--gold-soft)}
     .links a:hover{color:var(--gold-strong)}
 
     /* Hero */
-    .hero{
-      text-align:center;
-      padding:72px 0 32px;
-    }
-    .hero .lead-top{
-      color:var(--gold-soft);
-      font-weight:800;
-      letter-spacing:.2px;
-      margin-bottom:18px;
+    .hero{text-align:center;padding:72px 0 32px}
+    .lead-top{color:var(--gold-soft);font-weight:800;letter-spacing:.2px;margin-bottom:18px}
+    /* Circle coin: wrapper crops image perfectly round */
+    .coin-wrap{
+      width:min(42vw, 320px); aspect-ratio:1/1;
+      margin:8px auto 18px; border-radius:50%; overflow:hidden;
+      box-shadow:
+        0 0 26px rgba(8,201,79,.18),
+        0 18px 40px rgba(0,0,0,.35);
+      display:grid; place-items:center;
+      background:transparent;
     }
     .coin{
-      width:min(42vw, 320px);
-      height:auto;
-      filter:
-        drop-shadow(0 0 26px rgba(8,201,79,.18))
-        drop-shadow(0 18px 40px rgba(0,0,0,.35));
-      margin:8px auto 18px;
+      width:110%; height:110%;
+      object-fit:cover; /* ensures only the coin fills the circle */
       display:block;
+      /* If your PNG already has transparent bg, this still looks perfect. */
     }
-    .title{
-      font:800 clamp(36px,6vw,60px)/1.05 Inter;
-      color:var(--gold-strong);
-      margin:6px 0 8px;
-    }
-    .subtitle{
-      color:var(--muted);
-      margin:0 auto 22px;
-      max-width:640px;
-    }
-    .cta{
-      display:flex; justify-content:center; gap:14px; flex-wrap:wrap;
-    }
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:12px 20px;
-      border:1px solid var(--gold);
-      border-radius:8px;
-      color:var(--gold);
-      background:transparent;
-      font-weight:700;
-      transition:all .15s ease;
-      min-width:180px;
-    }
-    .btn:hover{background:var(--gold); color:var(--bg-dark)}
-    .btn.ghost{border-color:#8c764e; color:#d9c397}
-    .btn.ghost:hover{background:#d9c397; color:#1a120a}
+    .title{font:800 clamp(36px,6vw,60px)/1.05 Inter;color:var(--gold-strong);margin:6px 0 8px}
+    .subtitle{color:var(--muted);margin:0 auto 22px;max-width:640px}
+    .cta{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;
+      border:1px solid var(--gold);border-radius:8px;color:var(--gold);background:transparent;
+      font-weight:700;transition:all .15s ease;min-width:180px}
+    .btn:hover{background:var(--gold);color:var(--bg-dark)}
+    .btn.ghost{border-color:#8c764e;color:#d9c397}
+    .btn.ghost:hover{background:#d9c397;color:#1a120a}
 
-    /* Cards / Sections */
+    /* Sections */
     section{padding:54px 0}
-    .card{
-      background:linear-gradient(180deg, rgba(36,20,12,.85), rgba(36,20,12,.75));
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:22px;
-    }
-    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
-    h3{font:800 22px/1.2 Inter; margin:0 0 14px; color:var(--gold)}
-    .tile h4{margin:0 0 6px; font:700 16px/1.2 Inter; color:var(--gold-soft)}
-    .tile p{margin:0; color:#d5c3a3}
+    .card{background:rgba(36,20,12,.82);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    h3{font:800 22px/1.2 Inter;margin:0 0 14px;color:var(--gold)}
+    .tile h4{margin:0 0 6px;font:700 16px/1.2 Inter;color:var(--gold-soft)}
+    .tile p{margin:0;color:#d5c3a3}
 
     /* Tokenomics */
-    .tokenomics{display:grid; grid-template-columns:1.05fr .95fr; gap:18px}
-    .statrow{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:16px}
-    .stat{padding:12px; border-radius:10px; border:1px solid var(--line); background:#221309}
-    .stat .label{font:600 12px/1 Inter; color:#b79c73}
-    .stat b{display:block; font-size:18px; color:#f3d99a}
+    .tokenomics{display:grid;grid-template-columns:1.05fr .95fr;gap:18px}
+    .statrow{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+    .stat{padding:12px;border-radius:10px;border:1px solid var(--line);background:#221309}
+    .stat .label{font:600 12px/1 Inter;color:#b79c73}
+    .stat b{display:block;font-size:18px;color:#f3d99a}
 
     /* Footer */
-    footer{padding:40px 0 60px; color:#bba682; border-top:1px solid var(--line); margin-top:40px}
-    .disclaimer{border:1px solid var(--line); border-radius:10px; padding:14px; background:#221309; color:#d7c49a}
+    footer{padding:40px 0 60px;color:#bba682;border-top:1px solid var(--line);margin-top:40px}
+    .disclaimer{border:1px solid var(--line);border-radius:10px;padding:14px;background:#221309;color:#d7c49a}
 
-    /* Responsive */
-    @media (max-width: 900px){
+    @media (max-width:900px){
       .grid{grid-template-columns:1fr}
       .tokenomics{grid-template-columns:1fr}
       .links{gap:12px}
@@ -149,7 +103,6 @@
   <header>
     <div class="nav">
       <div class="brand">
-        <!-- If your image is in /assets, change src to assets/coin_optimized.png -->
         <img src="coin_optimized.png" alt="2016 Coin logo">
         <h1>2016 Coin</h1>
       </div>
@@ -164,10 +117,15 @@
   <!-- Hero -->
   <main id="home" class="hero wrap">
     <div class="lead-top">If you miss the happiness you had in 2016</div>
-    <!-- If image is in /assets, change this src too -->
-    <img class="coin" src="coin_optimized.png" alt="2016 Coin">
+
+    <!-- Circle-only coin -->
+    <div class="coin-wrap">
+      <img class="coin" src="coin_optimized.png" alt="2016 Coin">
+    </div>
+
     <div class="title">2016 Coin</div>
     <p class="subtitle">For everyone who just wants the vibes back. No utility. Pure memes.</p>
+
     <div class="cta">
       <a class="btn" id="ctaBuy" href="#buy">Buy on Pump.fun</a>
       <a class="btn ghost" id="chartBtn" href="#chart">View on Dexscreener</a>
@@ -243,24 +201,24 @@
   </footer>
 
   <script>
-    /* One place to change everything on launch day */
+    /* Launch-day config */
     const CONFIG = {
-      chain: "Solana",           // will show in the Tokenomics card
-      contract: "TBA",           // replace with real mint when live
+      chain: "Solana",
+      contract: "TBA", // replace with real mint
       links: {
-        buy:   "https://pump.fun/coin/xxxxxxxxxxxxxxxxxxxxxxxx", // MUST be /coin/<id>
-        chart: "https://dexscreener.com/solana/xxxxxxxxxxxxxxxx" // optional but nice
+        buy:   "https://pump.fun/coin/xxxxxxxxxxxxxxxxxxxxxxxx",
+        chart: "https://dexscreener.com/solana/xxxxxxxxxxxxxxxx"
       }
     };
 
-    // Wire up dynamic fields + links
+    // Populate fields + links
     document.querySelectorAll('#chain').forEach(n => n.textContent = CONFIG.chain);
     document.querySelectorAll('#ca').forEach(n => n.textContent = CONFIG.contract);
     document.querySelectorAll('#chartBtn').forEach(n => n.href = CONFIG.links.chart);
     document.querySelectorAll('#ctaBuy, #buy2').forEach(n => n.href = CONFIG.links.buy);
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Smooth scroll for internal links
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click', e=>{
         const id = a.getAttribute('href');
