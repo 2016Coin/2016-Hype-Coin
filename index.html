@@ -4,286 +4,272 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>2016 Coin — Pure Meme Energy</title>
-  <meta name="description" content="2016 Coin (no utility, just memes). A simple, clean, professional one-pager for a meme coin." />
-  <meta property="og:title" content="2016 Coin — Pure Meme Energy" />
-  <meta property="og:description" content="No utility. Pure memes. Clean one-pager for the culture." />
+  <meta name="description" content="2016 Coin (no utility, just memes). A clean, human-designed one-pager." />
   <meta property="og:type" content="website" />
+  <meta property="og:title" content="2016 Coin — Pure Meme Energy" />
+  <meta property="og:description" content="If you miss the happiness you had in 2016." />
   <meta property="og:image" content="coin_optimized.png" />
-  <link rel="icon" href="coin_optimized.png">
-  <!-- Friendly, human typography -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="coin_optimized.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
-    /* ===== 2016 Coin — Human, warm theme (gold/cream) ===== */
     :root{
-      /* Paper background */
-      --bg1:#F3E8D8; /* cream */
-      --bg2:#EEE2CB; /* parchment */
-      --bg3:#E6D9C0; /* light beige */
-
-      /* Text & accents from coin */
-      --text:#231A0F;      /* deep brown/charcoal */
-      --muted:#6E604C;     /* warm gray-brown */
-      --gold:#C9A227;      /* primary gold */
-      --bronze:#8C6E1E;    /* bronze */
-      --ink:#1E160C;       /* outline color reference */
-
-      /* Surfaces */
-      --card:#FFFFFF;
-      --card-soft:#FFFAF0;
-      --border:rgba(30,22,12,.12);
-      --shadow:0 10px 28px rgba(30,22,12,.12);
-      --radius:16px;
+      /* Dark cocoa background + warm gold UI */
+      --bg-dark:#1a0f08;
+      --bg-mid:#2a180e;
+      --bg-soft:#3a2615;
+      --gold:#f1c76e;
+      --gold-strong:#ffd86e;
+      --gold-soft:#e0c48f;
+      --text:#f8edd6;
+      --muted:#c3ab84;
+      --line:#5c4325;
+      --card:#24140c;
+      --radius:12px;
+      --shadow:0 18px 60px rgba(0,0,0,.35);
     }
-
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0; color:var(--text);
+      margin:0;
       font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      color:var(--text);
       background:
-        radial-gradient(900px 450px at 15% -10%, rgba(201,162,39,.14) 0%, transparent 60%),
-        linear-gradient(135deg,var(--bg1),var(--bg2) 50%,var(--bg3));
+        radial-gradient(900px 500px at 50% 30%, var(--bg-soft), transparent 65%),
+        radial-gradient(1400px 700px at 20% -10%, rgba(76,49,24,.55), transparent 70%),
+        linear-gradient(#2b180f, #160c07 70%, #0f0805);
+      background-color:var(--bg-dark);
     }
     a{color:inherit;text-decoration:none}
-    .wrap{max-width:1100px;margin:0 auto;padding:20px}
 
-    /* Intro line */
-    .headline{
-      text-align:center;
-      font:800 26px/1.2 "Fraunces", serif;
-      color:var(--ink);
-      margin:18px 0 10px;
-      letter-spacing:.3px;
-    }
+    .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
 
-    /* Header */
+    /* Header (simple, quiet) */
     header{
-      display:flex;justify-content:space-between;align-items:center;gap:14px;
-      padding:14px 18px;background:var(--card);
-      border:1px solid var(--border); border-radius:var(--radius);
-      box-shadow:var(--shadow); position:sticky; top:18px; z-index:10;
+      position:sticky; top:0; z-index:20;
+      backdrop-filter:saturate(140%) blur(6px);
+      background:linear-gradient(to bottom, rgba(26,15,8,.85), rgba(26,15,8,.55));
+      border-bottom:1px solid var(--line);
     }
-    .brand{display:flex;gap:12px;align-items:center}
-    .brand img{width:44px;height:44px;border-radius:50%; box-shadow:0 6px 16px rgba(30,22,12,.14)}
-    .brand h1{font:800 18px/1 "Fraunces",serif; margin:0}
-    .brand .tag{display:block;font:600 12px/1 Inter;color:var(--muted)}
-    nav{display:flex;gap:10px;flex-wrap:wrap}
-    .btn{
-      display:inline-flex;align-items:center;gap:8px; padding:10px 14px;
-      border-radius:12px; background:var(--card-soft);
-      border:1px solid var(--border); transition:transform .12s ease, background .12s ease, border-color .12s ease;
+    .nav{
+      max-width:1100px; margin:0 auto;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 24px;
     }
-    .btn:hover{transform:translateY(-1px); background:#FFF2D5; border-color:#d7b85c66}
-    .btn:focus-visible{outline:2px solid var(--gold); outline-offset:2px}
-    .btn.primary{
-      background:linear-gradient(180deg,#E0C45A,#B5891A);
-      color:#231A0F; border:none; font-weight:700;
-    }
-    .btn.primary:hover{filter:brightness(1.03)}
+    .brand{display:flex; align-items:center; gap:10px; color:var(--gold)}
+    .brand img{width:28px; height:28px; border-radius:50%; box-shadow:0 0 12px rgba(241,199,110,.25)}
+    .brand h1{font:800 16px/1 Inter; margin:0}
+    .links{display:flex; gap:18px}
+    .links a{font-weight:600; color:var(--gold-soft)}
+    .links a:hover{color:var(--gold-strong)}
 
     /* Hero */
-    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:center;margin:30px 0}
-    .card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:24px; box-shadow:var(--shadow)}
-    .badge{
-      display:inline-block; padding:8px 12px; border-radius:999px;
-      background:#FFF3D4; border:1px solid var(--border);
-      color:#5B4C37; font-weight:700; font-size:12px; letter-spacing:.2px; margin-bottom:12px;
+    .hero{
+      text-align:center;
+      padding:72px 0 32px;
     }
-    h2.title{font:800 clamp(26px,4.2vw,40px)/1.08 "Fraunces",serif; letter-spacing:.2px; margin:4px 0 8px}
-    p.lead{font-size:16px;color:#4D4031;margin:0 0 16px}
-    .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
-
-    .statrow{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
-    .stat{padding:12px;border-radius:12px;border:1px solid var(--border);background:#FFF7E5}
-    .stat b{display:block;font-size:18px}
-    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;color:var(--muted)}
-
-    /* Poster (coin) */
-    .meme-poster{
-      max-width:420px; height:auto; display:block; margin:0 auto;
-      border-radius:12px; box-shadow:0 10px 28px rgba(30,22,12,.14);
+    .hero .lead-top{
+      color:var(--gold-soft);
+      font-weight:800;
+      letter-spacing:.2px;
+      margin-bottom:18px;
     }
+    .coin{
+      width:min(42vw, 320px);
+      height:auto;
+      filter:
+        drop-shadow(0 0 26px rgba(8,201,79,.18))
+        drop-shadow(0 18px 40px rgba(0,0,0,.35));
+      margin:8px auto 18px;
+      display:block;
+    }
+    .title{
+      font:800 clamp(36px,6vw,60px)/1.05 Inter;
+      color:var(--gold-strong);
+      margin:6px 0 8px;
+    }
+    .subtitle{
+      color:var(--muted);
+      margin:0 auto 22px;
+      max-width:640px;
+    }
+    .cta{
+      display:flex; justify-content:center; gap:14px; flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 20px;
+      border:1px solid var(--gold);
+      border-radius:8px;
+      color:var(--gold);
+      background:transparent;
+      font-weight:700;
+      transition:all .15s ease;
+      min-width:180px;
+    }
+    .btn:hover{background:var(--gold); color:var(--bg-dark)}
+    .btn.ghost{border-color:#8c764e; color:#d9c397}
+    .btn.ghost:hover{background:#d9c397; color:#1a120a}
 
-    /* Sections */
-    section{margin:54px 0}
-    h3{font:800 20px/1.2 "Fraunces",serif; margin:0 0 10px}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .tile{padding:16px;border-radius:14px;border:1px solid var(--border);background:#FFFCF6}
-    .tile h4{margin:0 0 6px;font:700 16px/1.2 Inter}
-    .tile p{margin:0;color:#534733;font-size:14px}
+    /* Cards / Sections */
+    section{padding:54px 0}
+    .card{
+      background:linear-gradient(180deg, rgba(36,20,12,.85), rgba(36,20,12,.75));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:22px;
+    }
+    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+    h3{font:800 22px/1.2 Inter; margin:0 0 14px; color:var(--gold)}
+    .tile h4{margin:0 0 6px; font:700 16px/1.2 Inter; color:var(--gold-soft)}
+    .tile p{margin:0; color:#d5c3a3}
 
     /* Tokenomics */
-    .tokenomics{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
-    .list{display:grid;gap:10px}
-    .row{
-      display:flex;justify-content:space-between;gap:10px;
-      padding:12px 14px; border:1px dashed #b8942a55; border-radius:12px; background:#FFF6E1
-    }
-
-    /* FAQ */
-    details{border:1px solid var(--border);border-radius:12px;padding:14px 16px;background:#FFFCF6}
-    details+details{margin-top:10px}
-    summary{cursor:pointer;font-weight:800}
-    details p{color:#5A4B37}
+    .tokenomics{display:grid; grid-template-columns:1.05fr .95fr; gap:18px}
+    .statrow{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:16px}
+    .stat{padding:12px; border-radius:10px; border:1px solid var(--line); background:#221309}
+    .stat .label{font:600 12px/1 Inter; color:#b79c73}
+    .stat b{display:block; font-size:18px; color:#f3d99a}
 
     /* Footer */
-    footer{margin:70px 0 20px;color:var(--muted);font-size:13px}
-    .disclaimer{border:1px solid var(--border);background:#FFF8EA;border-radius:14px;padding:14px}
+    footer{padding:40px 0 60px; color:#bba682; border-top:1px solid var(--line); margin-top:40px}
+    .disclaimer{border:1px solid var(--line); border-radius:10px; padding:14px; background:#221309; color:#d7c49a}
 
     /* Responsive */
     @media (max-width: 900px){
-      .hero, .tokenomics{grid-template-columns:1fr}
-      header{position:static}
+      .grid{grid-template-columns:1fr}
+      .tokenomics{grid-template-columns:1fr}
+      .links{gap:12px}
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="headline">If you miss the happiness you had in 2016</div>
 
-    <!-- Header (layout unchanged) -->
-    <header>
+  <!-- Header -->
+  <header>
+    <div class="nav">
       <div class="brand">
-        <!-- Use your coin image as the logo -->
-        <img src="coin_optimized.png" alt="2016 Coin logo" />
-        <div>
-          <h1>2016 Coin</h1>
-          <span class="tag">No utility • Pure memes</span>
-        </div>
+        <!-- If your image is in /assets, change src to assets/coin_optimized.png -->
+        <img src="coin_optimized.png" alt="2016 Coin logo">
+        <h1>2016 Coin</h1>
       </div>
-      <nav>
-        <a class="btn" href="#about">About</a>
-        <a class="btn" href="#tokenomics">Tokenomics</a>
-        <a class="btn" href="#faq">FAQ</a>
-        <a class="btn primary" id="buyBtn" href="#buy">Buy</a>
+      <nav class="links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#how">How to Buy</a>
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <!-- Hero -->
-    <section class="hero">
+  <!-- Hero -->
+  <main id="home" class="hero wrap">
+    <div class="lead-top">If you miss the happiness you had in 2016</div>
+    <!-- If image is in /assets, change this src too -->
+    <img class="coin" src="coin_optimized.png" alt="2016 Coin">
+    <div class="title">2016 Coin</div>
+    <p class="subtitle">For everyone who just wants the vibes back. No utility. Pure memes.</p>
+    <div class="cta">
+      <a class="btn" id="ctaBuy" href="#buy">Buy on Pump.fun</a>
+      <a class="btn ghost" id="chartBtn" href="#chart">View on Dexscreener</a>
+    </div>
+  </main>
+
+  <!-- About -->
+  <section id="about" class="wrap">
+    <h3>About 2016 Coin</h3>
+    <div class="grid">
+      <div class="tile card">
+        <h4>Why</h4>
+        <p>Because 2016 felt simple and fun. This coin exists for jokes, nostalgia, and internet culture.</p>
+      </div>
+      <div class="tile card">
+        <h4>What</h4>
+        <p>A token with one purpose: to laugh and post memes. No roadmap, no promises, no pressure.</p>
+      </div>
+      <div class="tile card">
+        <h4>What not</h4>
+        <p>This is <em>not</em> an investment. No utility. No expectation of profit. Just vibes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tokenomics / How to Buy -->
+  <section id="how" class="wrap">
+    <h3>Tokenomics & How to Buy</h3>
+    <div class="tokenomics">
       <div class="card">
-        <span class="badge">2016 energy • 2025 vibes</span>
-        <h2 class="title">Strictly for the meme economy.</h2>
-        <p class="lead">2016 Coin exists for jokes, nostalgia, and internet culture. No roadmaps, no promises, no utility. If you’re here, you’re here for the fun.</p>
-        <div class="cta">
-          <a class="btn primary" id="ctaBuy" href="#buy">Buy 2016</a>
-          <a class="btn" id="chartBtn" href="#chart">View Chart</a>
-          <a class="btn" rel="me" href="https://x.com/" target="_blank">X / Twitter</a>
-          <a class="btn" href="https://t.me/" target="_blank">Telegram</a>
-        </div>
         <div class="statrow">
-          <div class="stat"><span class="mono">Ticker</span><b>$COIN2016</b></div>
-          <div class="stat"><span class="mono">Chain</span><b id="chain">—</b></div>
-          <div class="stat"><span class="mono">CA</span><b id="ca">TBA</b></div>
+          <div class="stat"><span class="label">Ticker</span><b>$COIN2016</b></div>
+          <div class="stat"><span class="label">Chain</span><b id="chain">—</b></div>
+          <div class="stat"><span class="label">CA</span><b id="ca">TBA</b></div>
         </div>
       </div>
-      <div class="card" aria-labelledby="hero-art-title">
-        <h3 id="hero-art-title" style="margin:0 0 10px">Meme Poster</h3>
-        <!-- Keep your poster as the coin image -->
-        <img src="coin_optimized.png" alt="2016 Coin Poster" class="meme-poster" />
+      <div class="card">
+        <ol style="margin:0; padding-left:18px; color:#d9c397">
+          <li>Install a Solana wallet (Phantom/Solflare).</li>
+          <li>Fund with SOL.</li>
+          <li>Open Pump.fun on launch and use the Buy button below.</li>
+        </ol>
+        <div class="cta" style="margin-top:14px">
+          <a class="btn" id="buy2" href="#buy">Open Pump.fun</a>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- About -->
-    <section id="about">
-      <h3>About</h3>
-      <div class="grid">
-        <div class="tile">
-          <h4>Why</h4>
-          <p>Because memes are culture. 2016 Coin is a vibe project—fun first, forever.</p>
-        </div>
-        <div class="tile">
-          <h4>What</h4>
-          <p>A simple token with a simple premise: post memes, have a laugh, enjoy the ride.</p>
-        </div>
-        <div class="tile">
-          <h4>What not</h4>
-          <p>No promises, no roadmap, no utility. This is <em>not</em> an investment.</p>
-        </div>
-      </div>
-    </section>
+  <!-- FAQ -->
+  <section class="wrap">
+    <h3>FAQ</h3>
+    <div class="card" style="margin-bottom:12px">
+      <strong>Does 2016 Coin have utility?</strong>
+      <p style="margin:8px 0 0; color:#d7c49a">No. It’s a meme coin. Entertainment only.</p>
+    </div>
+    <div class="card" style="margin-bottom:12px">
+      <strong>Is this financial advice?</strong>
+      <p style="margin:8px 0 0; color:#d7c49a">No. Do your own research and never risk more than you can afford to lose.</p>
+    </div>
+    <div class="card">
+      <strong>When contract?</strong>
+      <p style="margin:8px 0 0; color:#d7c49a">We’ll post the contract at launch. This page updates instantly once you paste it below.</p>
+    </div>
+  </section>
 
-    <!-- Tokenomics -->
-    <section id="tokenomics">
-      <h3>Tokenomics</h3>
-      <div class="tokenomics">
-        <div class="card">
-          <div class="list">
-            <div class="row"><span>Total Supply</span><b>1,000,000,000</b></div>
-            <div class="row"><span>Taxes</span><b>0%</b></div>
-            <div class="row"><span>Mint/LP</span><b>100% to Liquidity</b></div>
-            <div class="row"><span>Ownership</span><b>Renounced / TBA</b></div>
-          </div>
-        </div>
-        <div class="card">
-          <h4 style="margin-top:0">How to Buy</h4>
-          <ol style="margin:0; padding-left:18px; color:#534733">
-            <li>Set up a wallet that supports your chain of choice.</li>
-            <li>Fund it with the chain’s native token.</li>
-            <li>Use a DEX and paste the contract address once announced.</li>
-          </ol>
-          <p class="mono" style="margin-top:12px">Contract address (CA): <span id="ca2">TBA</span></p>
-          <a class="btn primary" style="margin-top:10px;display:inline-flex" id="buy2" href="#buy">Open DEX</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq">
-      <h3>FAQ</h3>
-      <details>
-        <summary>Does 2016 Coin have utility?</summary>
-        <p>No. 2016 Coin has <strong>no utility</strong> and exists solely for memes and entertainment.</p>
-      </details>
-      <details>
-        <summary>Is this financial advice?</summary>
-        <p>No. Nothing here is financial advice. Do your own research and never risk more than you can afford to lose.</p>
-      </details>
-      <details>
-        <summary>When contract?</summary>
-        <p>Contract address will be posted on official socials. The placeholders on this page can be updated in seconds—see the tiny script below.</p>
-      </details>
-    </section>
-
-    <!-- Footer / Disclaimer -->
-    <footer>
-      <div class="disclaimer">
-        <strong>Disclaimer:</strong> 2016 Coin is a meme coin with no intrinsic value, no expected returns, and no guarantees. This website is for entertainment and community vibes only.
-      </div>
-      <p style="margin-top:10px">© <span id="year"></span> 2016 Coin — Pure Meme Energy.</p>
-    </footer>
-  </div>
+  <!-- Footer -->
+  <footer class="wrap">
+    <div class="disclaimer">
+      <strong>Disclaimer:</strong> 2016 Coin is a meme coin with no intrinsic value and no utility. This site is for entertainment and community vibes only.
+    </div>
+    <p style="margin-top:12px">© <span id="year"></span> 2016 Coin</p>
+  </footer>
 
   <script>
-    // Launch-day switches
+    /* One place to change everything on launch day */
     const CONFIG = {
-      chain: "Solana",
-      contract: "TBA", // replace with real mint on launch
+      chain: "Solana",           // will show in the Tokenomics card
+      contract: "TBA",           // replace with real mint when live
       links: {
-        buy: "https://pump.fun/coin/xxxxxxxxxxxx",  // put your real coin URL
-        chart: "https://dexscreener.com/solana/xxxxxxxxxxxx",
-        x: "https://x.com/",
-        tg: "https://t.me/"
+        buy:   "https://pump.fun/coin/xxxxxxxxxxxxxxxxxxxxxxxx", // MUST be /coin/<id>
+        chart: "https://dexscreener.com/solana/xxxxxxxxxxxxxxxx" // optional but nice
       }
     };
 
-    // Populate dynamic fields
-    document.querySelectorAll('#ca, #ca2').forEach(n=> n.textContent = CONFIG.contract);
-    document.querySelectorAll('#chain').forEach(n=> n.textContent = CONFIG.chain);
-    document.querySelectorAll('#chartBtn').forEach(n=> n.href = CONFIG.links.chart);
-    document.querySelectorAll('#buyBtn, #ctaBuy, #buy2').forEach(n=> n.href = CONFIG.links.buy);
-    document.querySelector('#year').textContent = new Date().getFullYear();
+    // Wire up dynamic fields + links
+    document.querySelectorAll('#chain').forEach(n => n.textContent = CONFIG.chain);
+    document.querySelectorAll('#ca').forEach(n => n.textContent = CONFIG.contract);
+    document.querySelectorAll('#chartBtn').forEach(n => n.href = CONFIG.links.chart);
+    document.querySelectorAll('#ctaBuy, #buy2').forEach(n => n.href = CONFIG.links.buy);
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Smooth scroll
+    // Smooth scroll for internal links
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click', e=>{
-        const href = a.getAttribute('href');
-        if(href && href.startsWith('#') && href.length>1){
-          e.preventDefault();
-          document.querySelector(href)?.scrollIntoView({behavior:'smooth'});
+        const id = a.getAttribute('href');
+        if(id && id.startsWith('#') && id.length>1){
+          const el = document.querySelector(id);
+          if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
         }
-      })
-    })
+      });
+    });
   </script>
 </body>
 </html>
