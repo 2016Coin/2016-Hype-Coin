@@ -4,11 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>2016 Coin — Pure Meme Energy</title>
-  <meta name="description" content="2016 Coin (no utility, just memes). A simple, clean, professional one‑pager for a meme coin." />
+  <meta name="description" content="2016 Coin (no utility, just memes). A simple, clean, professional one-pager for a meme coin." />
   <meta property="og:title" content="2016 Coin — Pure Meme Energy" />
-  <meta property="og:description" content="No utility. Pure memes. Clean one‑pager for the culture." />
+  <meta property="og:description" content="No utility. Pure memes. Clean one-pager for the culture." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'><rect fill='%230f0c29' width='100%' height='100%'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%23fff' font-family='Inter,Arial,sans-serif' font-size='72'>2016 COIN</text></svg>" />
+  <meta property="og:image" content="coin_optimized.png" />
   <link rel="icon" href="coin_optimized.png"> 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Bangers&display=swap" rel="stylesheet" />
   <style>
@@ -26,8 +26,7 @@
     /* Header */
     header{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:color-mix(in oklab, var(--card) 80%, transparent);border:1px solid #ffffff14;border-radius:var(--radius);backdrop-filter:blur(6px);position:sticky;top:18px;z-index:50; box-shadow: var(--shadow)}
     .brand{display:flex;gap:12px;align-items:center}
-    .logo{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:conic-gradient(from 210deg at 50% 50%, var(--acc), var(--acc2), var(--acc));box-shadow:0 6px 18px rgba(0,0,0,.35)}
-    .logo svg{filter:drop-shadow(0 2px 4px rgba(0,0,0,.4))}
+    .logo{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.35)}
     .brand h1{font:800 18px/1.1 Inter,system-ui;margin:0}
     .brand .tag{display:block;font:600 11px/1 Inter,system-ui;color:var(--muted)}
     nav{display:flex;gap:10px;flex-wrap:wrap}
@@ -83,9 +82,7 @@
     <header>
       <div class="brand">
         <div class="logo" aria-hidden="true">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="2016 Coin logo">
-            <path d="M12 2l2.7 5.5L20 9l-5 3.9L16 20l-4-2.6L8 20l1-7.1L4 9l5.3-1.5L12 2z" fill="#001018"/>
-          </svg>
+          <img src="coin_optimized.png" alt="2016 Coin logo" style="width:44px; height:44px; border-radius:12px;" />
         </div>
         <div>
           <h1>2016 Coin</h1>
@@ -120,23 +117,7 @@
       </div>
       <div class="card" aria-labelledby="hero-art-title">
         <h3 id="hero-art-title" style="margin:0 0 10px">Meme Poster</h3>
-        <svg viewBox="0 0 800 520" width="100%" height="auto" role="img" aria-label="Abstract hero artwork">
-          <defs>
-            <linearGradient id="g1" x1="0" x2="1">
-              <stop offset="0%" stop-color="#00E5FF"/>
-              <stop offset="100%" stop-color="#A259FF"/>
-            </linearGradient>
-            <filter id="blur"><feGaussianBlur stdDeviation="20"/></filter>
-          </defs>
-          <rect width="800" height="520" rx="22" fill="#0e1426"/>
-          <g filter="url(#blur)" opacity="0.7">
-            <circle cx="680" cy="120" r="110" fill="url(#g1)"/>
-            <circle cx="100" cy="380" r="130" fill="#00E5FF"/>
-            <circle cx="330" cy="210" r="90" fill="#A259FF"/>
-          </g>
-          <text x="50%" y="58%" text-anchor="middle" fill="#fff" font-family="Bangers,Inter,Arial" font-size="84">2016 COIN</text>
-          <text x="50%" y="68%" text-anchor="middle" fill="#bcd" font-family="Inter,Arial" font-size="18">no utility · just memes</text>
-        </svg>
+        <img src="coin_optimized.png" alt="2016 Coin Poster" class="hero-img" />
       </div>
     </section>
 
@@ -232,7 +213,7 @@
     document.querySelector('#year').textContent = new Date().getFullYear();
 
     // Small nicety: smooth scroll for internal anchors
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    document.querySelectorAll('a[href^=\"#\"]').forEach(a=>{
       a.addEventListener('click', e=>{
         const href = a.getAttribute('href');
         if(href && href.startsWith('#') && href.length>1){
