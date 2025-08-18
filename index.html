@@ -1,22 +1,234 @@
-.coin-wrap {
-  width: min(42vw, 320px);
-  aspect-ratio: 1/1;
-  margin: 8px auto 18px;
-  border-radius: 50%;
-  overflow: hidden;
-  display: grid;
-  place-items: center;
-  background: transparent;
-  box-shadow: 0 0 26px rgba(8,201,79,.18),
-              0 18px 40px rgba(0,0,0,.35);
-  border: 3px solid #f1c76e; /* optional gold rim */
-}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>2016 Coin — Pure Meme Energy</title>
+  <meta name="description" content="2016 Coin (no utility, just memes). A clean, human-designed one-pager." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="2016 Coin — Pure Meme Energy" />
+  <meta property="og:description" content="If you miss the happiness you had in 2016." />
+  <meta property="og:image" content="coin_optimized.png" />
+  <link rel="icon" href="coin_optimized.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg-dark:#1a0f08; --bg-soft:#3a2615;
+      --gold:#f1c76e; --gold-strong:#ffd86e; --gold-soft:#e0c48f;
+      --text:#f8edd6; --muted:#c3ab84; --line:#5c4325;
+      --radius:12px; --shadow:0 18px 60px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; color:var(--text);
+      font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      background:
+        radial-gradient(900px 500px at 50% 30%, var(--bg-soft), transparent 65%),
+        linear-gradient(#2b180f, #160c07 70%, #0f0805);
+      background-color:var(--bg-dark);
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
 
-.coin {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center; /* centers it */
-}
+    /* Header */
+    header{position:sticky; top:0; z-index:20; backdrop-filter:saturate(140%) blur(6px);
+      background:linear-gradient(to bottom, rgba(26,15,8,.85), rgba(26,15,8,.55)); border-bottom:1px solid var(--line);}
+    .nav{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
+    .brand{display:flex;align-items:center;gap:10px;color:var(--gold)}
+    .brand img{width:28px;height:28px;border-radius:50%;box-shadow:0 0 12px rgba(241,199,110,.25)}
+    .brand h1{font:800 16px/1 Inter;margin:0}
+    .links{display:flex;gap:18px}
+    .links a{font-weight:600;color:var(--gold-soft)}
+    .links a:hover{color:var(--gold-strong)}
 
+    /* Hero */
+    .hero{text-align:center;padding:72px 0 32px}
+    .lead-top{color:var(--gold-soft);font-weight:800;letter-spacing:.2px;margin-bottom:18px}
+    /* Circle coin: wrapper crops image perfectly round */
+    .coin-wrap{
+      width:min(42vw, 320px); aspect-ratio:1/1;
+      margin:8px auto 18px; border-radius:50%; overflow:hidden;
+      box-shadow:
+        0 0 26px rgba(8,201,79,.18),
+        0 18px 40px rgba(0,0,0,.35);
+      display:grid; place-items:center;
+      background:transparent;
+    }
+    .coin{
+      width:110%; height:110%;
+      object-fit:cover; /* ensures only the coin fills the circle */
+      display:block;
+      /* If your PNG already has transparent bg, this still looks perfect. */
+    }
+    .title{font:800 clamp(36px,6vw,60px)/1.05 Inter;color:var(--gold-strong);margin:6px 0 8px}
+    .subtitle{color:var(--muted);margin:0 auto 22px;max-width:640px}
+    .cta{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;
+      border:1px solid var(--gold);border-radius:8px;color:var(--gold);background:transparent;
+      font-weight:700;transition:all .15s ease;min-width:180px}
+    .btn:hover{background:var(--gold);color:var(--bg-dark)}
+    .btn.ghost{border-color:#8c764e;color:#d9c397}
+    .btn.ghost:hover{background:#d9c397;color:#1a120a}
+
+    /* Sections */
+    section{padding:54px 0}
+    .card{background:rgba(36,20,12,.82);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    h3{font:800 22px/1.2 Inter;margin:0 0 14px;color:var(--gold)}
+    .tile h4{margin:0 0 6px;font:700 16px/1.2 Inter;color:var(--gold-soft)}
+    .tile p{margin:0;color:#d5c3a3}
+
+    /* Tokenomics */
+    .tokenomics{display:grid;grid-template-columns:1.05fr .95fr;gap:18px}
+    .statrow{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+    .stat{padding:12px;border-radius:10px;border:1px solid var(--line);background:#221309}
+    .stat .label{font:600 12px/1 Inter;color:#b79c73}
+    .stat b{display:block;font-size:18px;color:#f3d99a}
+
+    /* Footer */
+    footer{padding:40px 0 60px;color:#bba682;border-top:1px solid var(--line);margin-top:40px}
+    .disclaimer{border:1px solid var(--line);border-radius:10px;padding:14px;background:#221309;color:#d7c49a}
+
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr}
+      .tokenomics{grid-template-columns:1fr}
+      .links{gap:12px}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <img src="coin_optimized.png" alt="2016 Coin logo">
+        <h1>2016 Coin</h1>
+      </div>
+      <nav class="links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#how">How to Buy</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="home" class="hero wrap">
+    <div class="lead-top">If you miss the happiness you had in 2016</div>
+
+    <!-- Circle-only coin -->
+    <div class="coin-wrap">
+      <img class="coin" src="coin_optimized.png" alt="2016 Coin">
+    </div>
+
+    <div class="title">2016 Coin</div>
+    <p class="subtitle">For everyone who just wants the vibes back. No utility. Pure memes.</p>
+
+    <div class="cta">
+      <a class="btn" id="ctaBuy" href="#buy">Buy on Pump.fun</a>
+      <a class="btn ghost" id="chartBtn" href="#chart">View on Dexscreener</a>
+    </div>
+  </main>
+
+  <!-- About -->
+  <section id="about" class="wrap">
+    <h3>About 2016 Coin</h3>
+    <div class="grid">
+      <div class="tile card">
+        <h4>Why</h4>
+        <p>Because 2016 felt simple and fun. This coin exists for jokes, nostalgia, and internet culture.</p>
+      </div>
+      <div class="tile card">
+        <h4>What</h4>
+        <p>A token with one purpose: to laugh and post memes. No roadmap, no promises, no pressure.</p>
+      </div>
+      <div class="tile card">
+        <h4>What not</h4>
+        <p>This is <em>not</em> an investment. No utility. No expectation of profit. Just vibes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tokenomics / How to Buy -->
+  <section id="how" class="wrap">
+    <h3>Tokenomics & How to Buy</h3>
+    <div class="tokenomics">
+      <div class="card">
+        <div class="statrow">
+          <div class="stat"><span class="label">Ticker</span><b>$COIN2016</b></div>
+          <div class="stat"><span class="label">Chain</span><b id="chain">—</b></div>
+          <div class="stat"><span class="label">CA</span><b id="ca">TBA</b></div>
+        </div>
+      </div>
+      <div class="card">
+        <ol style="margin:0; padding-left:18px; color:#d9c397">
+          <li>Install a Solana wallet (Phantom/Solflare).</li>
+          <li>Fund with SOL.</li>
+          <li>Open Pump.fun on launch and use the Buy button below.</li>
+        </ol>
+        <div class="cta" style="margin-top:14px">
+          <a class="btn" id="buy2" href="#buy">Open Pump.fun</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="wrap">
+    <h3>FAQ</h3>
+    <div class="card" style="margin-bottom:12px">
+      <strong>Does 2016 Coin have utility?</strong>
+      <p style="margin:8px 0 0; color:#d7c49a">No. It’s a meme coin. Entertainment only.</p>
+    </div>
+    <div class="card" style="margin-bottom:12px">
+      <strong>Is this financial advice?</strong>
+      <p style="margin:8px 0 0; color:#d7c49a">No. Do your own research and never risk more than you can afford to lose.</p>
+    </div>
+    <div class="card">
+      <strong>When contract?</strong>
+      <p style="margin:8px 0 0; color:#d7c49a">We’ll post the contract at launch. This page updates instantly once you paste it below.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="wrap">
+    <div class="disclaimer">
+      <strong>Disclaimer:</strong> 2016 Coin is a meme coin with no intrinsic value and no utility. This site is for entertainment and community vibes only.
+    </div>
+    <p style="margin-top:12px">© <span id="year"></span> 2016 Coin</p>
+  </footer>
+
+  <script>
+    /* Launch-day config */
+    const CONFIG = {
+      chain: "Solana",
+      contract: "TBA", // replace with real mint
+      links: {
+        buy:   "https://pump.fun/coin/xxxxxxxxxxxxxxxxxxxxxxxx",
+        chart: "https://dexscreener.com/solana/xxxxxxxxxxxxxxxx"
+      }
+    };
+
+    // Populate fields + links
+    document.querySelectorAll('#chain').forEach(n => n.textContent = CONFIG.chain);
+    document.querySelectorAll('#ca').forEach(n => n.textContent = CONFIG.contract);
+    document.querySelectorAll('#chartBtn').forEach(n => n.href = CONFIG.links.chart);
+    document.querySelectorAll('#ctaBuy, #buy2').forEach(n => n.href = CONFIG.links.buy);
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href');
+        if(id && id.startsWith('#') && id.length>1){
+          const el = document.querySelector(id);
+          if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
 
