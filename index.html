@@ -47,6 +47,16 @@
     .stat b{display:block;font-size:18px}
     .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;color:var(--muted)}
 
+    /* Poster image */
+    .hero-img {
+      max-width: 300px;   /* controls poster size */
+      height: auto;
+      margin: 0 auto;
+      display: block;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+
     /* Sections */
     section{margin:60px 0}
     h3{font:800 20px/1.2 Inter;margin:0 0 12px}
@@ -192,27 +202,24 @@
   </div>
 
   <script>
-    // Quick content updates for launch day — edit these values once you have links.
     const CONFIG = {
-      chain: "Solana", // e.g., "Solana" | "Ethereum" | "Base"
-      contract: "TBA", // e.g., "So1...abc" or "0xabc...123"
+      chain: "Solana",
+      contract: "TBA",
       links: {
-        buy: "https://pump.fun/", // put your DEX or launch page
-        chart: "https://dexscreener.com/", // put your chart link
-        x: "https://x.com/", // project X/Twitter
-        tg: "https://t.me/" // project Telegram
+        buy: "https://pump.fun/",
+        chart: "https://dexscreener.com/",
+        x: "https://x.com/",
+        tg: "https://t.me/"
       }
     };
 
     function $(id){return document.getElementById(id)}
 
-    // Populate fields
     document.querySelectorAll('#ca, #ca2').forEach(n=> n.textContent = CONFIG.contract);
     document.querySelectorAll('#chartBtn').forEach(n=> n.href = CONFIG.links.chart);
     document.querySelectorAll('#buyBtn, #ctaBuy, #buy2').forEach(n=> n.href = CONFIG.links.buy);
     document.querySelector('#year').textContent = new Date().getFullYear();
 
-    // Small nicety: smooth scroll for internal anchors
     document.querySelectorAll('a[href^=\"#\"]').forEach(a=>{
       a.addEventListener('click', e=>{
         const href = a.getAttribute('href');
@@ -225,3 +232,4 @@
   </script>
 </body>
 </html>
+
