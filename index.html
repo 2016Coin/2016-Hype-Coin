@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
     :root{
-      /* Warm, BTC09-style cocoa background + gold UI */
+      /* Warm cocoa + gold palette */
       --bg1:#1c0f07; --bg2:#2d1b0f; --bg3:#1a120a;
       --card:#2a1a0d;
       --text:#f6ebd3; --muted:#c1a878;
@@ -48,7 +48,7 @@
     .hero{text-align:center;padding:72px 0 32px}
     .lead-top{color:#e6cb93;font-weight:800;letter-spacing:.2px;margin-bottom:18px}
 
-    /* —— Perfect circular coin with extra crop (Option 1) —— */
+    /* —— Circular coin with pulsing golden aura —— */
     .coin-wrap{
       width:min(42vw, 320px);
       aspect-ratio:1/1;
@@ -57,19 +57,42 @@
       overflow:hidden;
       display:grid;place-items:center;
       background:transparent;
-      box-shadow:0 0 26px rgba(241,199,110,.28), 0 18px 40px rgba(0,0,0,.35);
       border:3px solid var(--acc);
+
+      position: relative;
+      z-index: 1;
+      box-shadow:
+        0 0 40px 12px rgba(241,199,110,.45),
+        0 0 80px 30px rgba(241,199,110,.25),
+        0 0 120px 60px rgba(241,199,110,.15);
+
       /* shave the very edge to prevent any leftover halo */
       -webkit-mask-image:radial-gradient(circle at 50% 50%, #000 98%, transparent 100%);
       mask-image:radial-gradient(circle at 50% 50%, #000 98%, transparent 100%);
+
+      /* pulsing glow */
+      animation: pulseGlow 4s infinite ease-in-out;
     }
     .coin{
-      /* zoom + slight vertical nudge to hide stubborn white rim */
       width:120%; height:120%;
       object-fit:cover;
-      object-position:50% 52%; /* push down 2% — adjust 50–55% if needed */
+      object-position:50% 52%; /* tiny downward nudge to hide top rim */
       transform:translateZ(0);
       display:block;
+    }
+    @keyframes pulseGlow {
+      0%, 100% {
+        box-shadow:
+          0 0 40px 12px rgba(241,199,110,.45),
+          0 0 80px 30px rgba(241,199,110,.25),
+          0 0 120px 60px rgba(241,199,110,.15);
+      }
+      50% {
+        box-shadow:
+          0 0 60px 20px rgba(241,199,110,.65),
+          0 0 100px 40px rgba(241,199,110,.35),
+          0 0 160px 70px rgba(241,199,110,.25);
+      }
     }
 
     .title{font:800 clamp(36px,6vw,60px)/1.05 Inter;color:#ffd86e;margin:6px 0 8px}
@@ -79,7 +102,7 @@
     .btn{
       display:inline-flex;align-items:center;justify-content:center;
       padding:12px 20px; min-width:180px;
-      border:1px solid var(--acc); border-radius:8px;
+      border:1.5px solid var(--acc); border-radius:8px;
       color:var(--acc); font-weight:700; background:transparent;
       transition:all .15s ease;
     }
@@ -87,7 +110,7 @@
     .btn.ghost{border-color:#8c764e;color:#d9c397}
     .btn.ghost:hover{background:#d9c397;color:#1a120a}
 
-    /* Sections (optional below-the-fold content) */
+    /* Sections */
     section{padding:54px 0}
     .card{background:rgba(36,20,12,.82);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -95,12 +118,14 @@
     .tile h4{margin:0 0 6px;font:700 16px/1.2 Inter;color:#e6cb93}
     .tile p{margin:0;color:#d5c3a3}
 
+    /* Tokenomics */
     .tokenomics{display:grid;grid-template-columns:1.05fr .95fr;gap:18px}
     .statrow{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
     .stat{padding:12px;border-radius:10px;border:1px solid var(--line);background:#221309}
     .stat .label{font:600 12px/1 Inter;color:#b79c73}
     .stat b{display:block;font-size:18px;color:#f3d99a}
 
+    /* Footer */
     footer{padding:40px 0 60px;color:#bba682;border-top:1px solid var(--line);margin-top:40px}
     .disclaimer{border:1px solid var(--line);border-radius:10px;padding:14px;background:#221309;color:#d7c49a}
 
@@ -132,7 +157,7 @@
   <main id="home" class="hero wrap">
     <div class="lead-top">If you miss the happiness you had in 2016</div>
 
-    <!-- Circular, tightly-cropped coin -->
+    <!-- Circular, tightly-cropped coin with animated aura -->
     <div class="coin-wrap">
       <img class="coin" src="coin_optimized.png" alt="2016 Coin">
     </div>
@@ -146,7 +171,7 @@
     </div>
   </main>
 
-  <!-- Optional sections below (keep or remove) -->
+  <!-- About -->
   <section id="about" class="wrap">
     <h3>About 2016 Coin</h3>
     <div class="grid">
@@ -165,6 +190,7 @@
     </div>
   </section>
 
+  <!-- Tokenomics / How to Buy -->
   <section id="how" class="wrap">
     <h3>Tokenomics & How to Buy</h3>
     <div class="tokenomics">
@@ -188,6 +214,7 @@
     </div>
   </section>
 
+  <!-- Footer -->
   <footer class="wrap">
     <div class="disclaimer">
       <strong>Disclaimer:</strong> 2016 Coin is a meme coin with no intrinsic value and no utility. This site is for entertainment and community vibes only.
@@ -196,7 +223,7 @@
   </footer>
 
   <script>
-    /* Launch-day config (edit one place) */
+    /* Launch-day config (edit in one place) */
     const CONFIG = {
       chain: "Solana",
       contract: "TBA",
